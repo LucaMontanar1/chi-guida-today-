@@ -12,15 +12,16 @@ body {
     overflow: hidden;
 }
 
+/* Contenitore principale */
 .container {
     text-align: center;
 }
 
 /* Stili per il titolo */
 .title {
-    font-size: 3em;
+    font-size: 2.5em; /* Ridotto per migliorare la leggibilità */
     color: #333;
-    margin: 20px 0;
+    margin: 10px 0; /* Margini ridotti per maggiore compattezza */
     animation: moveTitle 5s ease-in-out infinite;
 }
 
@@ -30,7 +31,7 @@ body {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-10px);
     }
     100% {
         transform: translateY(0);
@@ -43,6 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px; /* Margine superiore ridotto per avvicinare la ruota al titolo */
 }
 
 /* Adattamento della ruota */
@@ -74,7 +76,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 2.5vw; /* Ulteriormente ridotto per adattarsi meglio alla ruota */
+    font-size: 2.5vw; /* Ridotto per adattarsi meglio alla ruota */
     font-weight: bold;
     color: #333;
     transform-origin: 100% 100%;
@@ -165,14 +167,14 @@ button {
 /* Media queries per smartphone */
 @media (max-width: 600px) {
     .title {
-        font-size: 2.5em;
+        font-size: 2em; /* Ridotto per smartphone */
     }
     .wheel {
         width: 90vw;
         height: 90vw;
     }
     .sector {
-        font-size: 4vw; /* Ulteriormente ridotto per smartphone */
+        font-size: 4vw; /* Ridotto per smartphone */
     }
     button {
         font-size: 1.2em;
