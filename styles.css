@@ -1,0 +1,163 @@
+/* Stili generali per il body */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Stili per il titolo */
+.title {
+    font-size: 3em;
+    color: #333;
+    margin: 20px 0;
+    animation: moveTitle 5s ease-in-out infinite;
+}
+
+/* Animazione per il titolo */
+@keyframes moveTitle {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Stili per la ruota e il contenitore */
+.wheel-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Adattamento della ruota */
+.wheel {
+    width: 80vw;
+    height: 80vw;
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 50%;
+    border: 10px solid #333;
+    background: conic-gradient(
+        #ff9999 0% 25%,   
+        #99ff99 25% 50%,  
+        #9999ff 50% 75%,  
+        #ffff99 75% 100%  
+    );
+    position: relative;
+    margin: 20px auto;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Settori della ruota */
+.sector {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.5vw; /* Ulteriormente ridotto per adattarsi meglio alla ruota */
+    font-weight: bold;
+    color: #333;
+    transform-origin: 100% 100%;
+    transform: rotate(calc(var(--i) * 90deg));
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Indicator */
+.indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid #333;
+    transform: translate(-50%, -50%) rotate(0deg);
+    z-index: 2;
+    margin-top: -20px;
+}
+
+/* Stili per il bottone */
+button {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Stili per il risultato */
+#result {
+    font-size: 1.5em;
+    margin-top: 20px;
+    white-space: pre-wrap; /* Permette il ritorno a capo */
+}
+
+/* Stili per i confetti */
+#confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+    display: none;
+}
+
+.confetto {
+    position: absolute;
+    border-radius: 50%;
+    animation: fall 3s ease-out forwards; /* Aumenta la durata dell'animazione */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Media queries per smartphone */
+@media (max-width: 600px) {
+    .title {
+        font-size: 2.5em;
+    }
+    .wheel {
+        width: 90vw;
+        height: 90vw;
+    }
+    .sector {
+        font-size: 4vw; /* Ulteriormente ridotto per smartphone */
+    }
+    button {
+        font-size: 1.2em;
+    }
+    #result {
+        font-size: 1.2em;
+    }
+}
