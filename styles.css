@@ -108,8 +108,9 @@ button {
 /* Stili per il risultato */
 #result {
     font-size: 1.5em;
-    margin-top: 20px;
+    margin-top: 10px; /* Ridotto il margine superiore */
     white-space: pre-wrap; /* Permette il ritorno a capo */
+    line-height: 1.2; /* Aumenta l'interlinea per migliorare la leggibilità */
 }
 
 /* Stili per i confetti */
@@ -128,7 +129,7 @@ button {
 .confetto {
     position: absolute;
     border-radius: 50%;
-    animation: fall 3s ease-out forwards; /* Aumenta la durata dell'animazione */
+    animation: fall 3s ease-out forwards;
 }
 
 @keyframes fall {
@@ -141,6 +142,25 @@ button {
         opacity: 0;
     }
 }
+
+/* Stili per i festoni */
+.festone {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background: #ffcc00;
+    z-index: 3;
+    transform-origin: 0 50%;
+    transform: rotate(45deg);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+/* Festoni aggiuntivi */
+.festone:nth-child(1) { top: 10%; left: 10%; }
+.festone:nth-child(2) { top: 10%; right: 10%; }
+.festone:nth-child(3) { bottom: 10%; left: 10%; }
+.festone:nth-child(4) { bottom: 10%; right: 10%; }
 
 /* Media queries per smartphone */
 @media (max-width: 600px) {
@@ -159,5 +179,6 @@ button {
     }
     #result {
         font-size: 1.2em;
+        margin-top: 5px; /* Ridotto il margine superiore per mobile */
     }
 }
