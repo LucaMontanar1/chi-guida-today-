@@ -12,16 +12,15 @@ body {
     overflow: hidden;
 }
 
-/* Contenitore principale */
 .container {
     text-align: center;
 }
 
 /* Stili per il titolo */
 .title {
-    font-size: 2.5em; /* Ridotto per migliorare la leggibilità */
+    font-size: 3em;
     color: #333;
-    margin: 10px 0; /* Margini ridotti per maggiore compattezza */
+    margin: 20px 0;
     animation: moveTitle 5s ease-in-out infinite;
 }
 
@@ -31,7 +30,7 @@ body {
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-20px);
     }
     100% {
         transform: translateY(0);
@@ -48,12 +47,12 @@ body {
 
 /* Adattamento della ruota */
 .wheel {
-    width: 60vw; /* Ridotto per adattarsi meglio allo schermo */
-    height: 60vw;
-    max-width: 400px;
-    max-height: 400px;
+    width: 80vw;
+    height: 80vw;
+    max-width: 500px;
+    max-height: 500px;
     border-radius: 50%;
-    border: 8px solid #333; /* Ridotto lo spessore del bordo */
+    border: 10px solid #333;
     background: conic-gradient(
         #ff9999 0% 25%,   
         #99ff99 25% 50%,  
@@ -61,7 +60,7 @@ body {
         #ffff99 75% 100%  
     );
     position: relative;
-    margin: 10px auto;
+    margin: 20px auto;
     overflow: hidden;
     z-index: 1;
 }
@@ -75,7 +74,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 1.5em; /* Ulteriormente ridotto per adattarsi meglio alla ruota */
+    font-size: 2.5vw; /* Ulteriormente ridotto per adattarsi meglio alla ruota */
     font-weight: bold;
     color: #333;
     transform-origin: 100% 100%;
@@ -90,28 +89,28 @@ body {
     left: 50%;
     width: 0;
     height: 0;
-    border-left: 20px solid transparent; /* Ridotto per adattarsi meglio */
-    border-right: 20px solid transparent;
-    border-bottom: 20px solid #333;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid #333;
     transform: translate(-50%, -50%) rotate(0deg);
     z-index: 2;
-    margin-top: -15px; /* Ridotto per adattarsi meglio */
+    margin-top: -20px;
 }
 
 /* Stili per il bottone */
 button {
-    margin: 10px;
-    padding: 8px 16px;
-    font-size: 1.2em; /* Ridotto per migliorare la compattezza */
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 1.5em;
     cursor: pointer;
 }
 
 /* Stili per il risultato */
 #result {
-    font-size: 1.2em; /* Ridotto per migliorare la leggibilità */
-    margin-top: 10px; /* Margine superiore ridotto */
+    font-size: 1.5em;
+    margin-top: 10px; /* Ridotto il margine superiore */
     white-space: pre-wrap; /* Permette il ritorno a capo */
-    line-height: 1.4; /* Aumenta l'interlinea per migliorare la leggibilità */
+    line-height: 1.2; /* Aumenta l'interlinea per migliorare la leggibilità */
 }
 
 /* Stili per i confetti */
@@ -133,11 +132,22 @@ button {
     animation: fall 3s ease-out forwards;
 }
 
-/* Festoni */
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Stili per i festoni */
 .festone {
     position: absolute;
-    width: 80px; /* Ridotto per adattarsi meglio */
-    height: 15px;
+    width: 100px;
+    height: 20px;
     background: #ffcc00;
     z-index: 3;
     transform-origin: 0 50%;
@@ -147,28 +157,28 @@ button {
 }
 
 /* Festoni aggiuntivi */
-.festone:nth-child(1) { top: 5%; left: 5%; }
-.festone:nth-child(2) { top: 5%; right: 5%; }
-.festone:nth-child(3) { bottom: 5%; left: 5%; }
-.festone:nth-child(4) { bottom: 5%; right: 5%; }
+.festone:nth-child(1) { top: 10%; left: 10%; }
+.festone:nth-child(2) { top: 10%; right: 10%; }
+.festone:nth-child(3) { bottom: 10%; left: 10%; }
+.festone:nth-child(4) { bottom: 10%; right: 10%; }
 
 /* Media queries per smartphone */
 @media (max-width: 600px) {
     .title {
-        font-size: 1.8em; /* Ridotto ulteriormente per smartphone */
+        font-size: 2.5em;
     }
     .wheel {
-        width: 80vw; /* Ridotto per smartphone */
-        height: 80vw;
+        width: 90vw;
+        height: 90vw;
     }
     .sector {
-        font-size: 1.2em; /* Ridotto ulteriormente per smartphone */
+        font-size: 4vw; /* Ulteriormente ridotto per smartphone */
     }
     button {
-        font-size: 1em; /* Ridotto ulteriormente per smartphone */
+        font-size: 1.2em;
     }
     #result {
-        font-size: 1em; /* Ridotto ulteriormente per smartphone */
-        margin-top: 5px; /* Margine superiore ridotto */
+        font-size: 1.2em;
+        margin-top: 5px; /* Ridotto il margine superiore per mobile */
     }
 }
